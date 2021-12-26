@@ -1,0 +1,142 @@
+package com.java.stream;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class EmployeStream {
+	
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args)
+	{
+		
+		List<Employee> employeeList = new ArrayList<Employee>();
+        
+		employeeList.add(new Employee(111, "Jiya Brein", 32, "Female", "HR", 2011, 25000));
+		employeeList.add(new Employee(122, "Paul Niksui", 25, "Male", "Sales And Marketing", 2015, 13500));
+		employeeList.add(new Employee(133, "Martin Theron", 29, "Male", "Infrastructure", 2012, 18000));
+		employeeList.add(new Employee(144, "Murali Gowda", 28, "Male", "Product Development", 2014, 32500));
+		employeeList.add(new Employee(155, "Nima Roy", 27, "Female", "HR", 2013, 22700));
+		
+	     // Collections.sort(employeeList, (emp1,emp2)->emp2.getSalary()-emp1.getSalary() );    
+		
+		  Collections.sort( employeeList);
+	      
+   
+		
+	  for(Employee e:employeeList)
+	  {
+		  System.out.println(e.getId());
+	  }
+
+		
+	  employeeList.stream().filter(i->i.getSalary()>20000).filter(i->i.getGender().
+	  equals("Female")).
+	  filter(i->i.getDepartment().equals("HR")).forEach(emp->System.out.println(emp
+	  ));
+		 
+		
+	Employee employee = employeeList.stream().max((emp1,emp2)->(emp1.getSalary()-emp2.getSalary())).get();
+	 System.out.println("Employee details with Max salary Details : " +employee);
+//		Employee employee2 = employeeList.stream().filter(emp->emp.getSalary()!=employee.getSalary()).max((emp1,emp2)->(emp1.getSalary()-emp2.getSalary())).get();
+//	
+//		System.out.println("1st Highest "+employee);
+//		System.out.println("2nd Highest "+employee2);
+		
+//		
+//		List<Employee> emp = employeeList.stream().sorted(Comparator.comparingDouble(Employee::getSalary)).collect(Collectors.toList());
+//		
+//		System.out.println(emp.get(emp.size()-2));
+		
+		
+		
+		
+	}
+	
+
+}
+
+class Employee implements Comparable
+{
+    int id;
+     
+    String name;
+     
+    int age;
+     
+    String gender;
+     
+    String department;
+     
+    int yearOfJoining;
+     
+    int salary;
+     
+    public Employee(int id, String name, int age, String gender, String department, int yearOfJoining, int salary) 
+    {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.department = department;
+        this.yearOfJoining = yearOfJoining;
+        this.salary = salary;
+    }
+     
+    public int getId() 
+    {
+        return id;
+    }
+     
+    public String getName() 
+    {
+        return name;
+    }
+     
+    public int getAge() 
+    {
+        return age;
+    }
+     
+    public String getGender() 
+    {
+        return gender;
+    }
+     
+    public String getDepartment() 
+    {
+        return department;
+    }
+     
+    public int getYearOfJoining() 
+    {
+        return yearOfJoining;
+    }
+     
+    public int getSalary() 
+    {
+        return salary;
+    }
+     
+    @Override
+    public String toString() 
+    {
+        return "Id : "+id
+                +", Name : "+name
+                +", age : "+age
+                +", Gender : "+gender
+                +", Department : "+department
+                +", Year Of Joining : "+yearOfJoining
+                +", Salary : "+salary;
+    }
+
+	@Override
+	public int compareTo(Object o) {
+		Employee e1=(Employee)o;
+		
+		
+		return e1.getId()-this.getId();
+	}
+}
+

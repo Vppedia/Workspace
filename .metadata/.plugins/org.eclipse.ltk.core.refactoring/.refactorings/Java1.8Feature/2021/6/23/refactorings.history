@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.java.stream.Anonyomous&apos; to &apos;Java8Streams&apos;&#x0D;&#x0A;- Original project: &apos;Java1.8Feature&apos;&#x0D;&#x0A;- Original element: &apos;com.java.stream.Anonyomous&apos;&#x0D;&#x0A;- Renamed element: &apos;com.java.stream.Java8Streams&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Anonyomous&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.java.stream{Anonyomous.java[Anonyomous" matchStrategy="1" name="Java8Streams" qualified="false" references="true" similarDeclarations="false" stamp="1622705039743" textual="false" version="1.0"/>
+</session>
